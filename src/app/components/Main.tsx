@@ -54,7 +54,7 @@ export default function Main() {
                                     src={item.imgSrc}
                                     alt={item.title}
                                     layout="fill"
-                                    objectFit="contain"
+                                    objectFit="cover"
                                 />
                             </div>
                             <div>

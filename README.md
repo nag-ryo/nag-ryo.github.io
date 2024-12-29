@@ -1,5 +1,5 @@
-[URL](https://ryonagamatsu.github.io/)  
-サイト管理のためのリポジトリです。  
+[URL](https://nag-ryo.github.io/)
+サイト管理のためのリポジトリです。
 日々インプットしているプログラミングなどに関する技術情報をまとめています。
 
 デプロイ用ブランチ: gh-pages
