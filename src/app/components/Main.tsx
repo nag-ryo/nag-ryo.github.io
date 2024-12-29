@@ -47,8 +47,7 @@ export default function Main() {
                                 transition-colors
                                 duration-300
                                 hover:bg-gray-200
-                                hover:animate-pulse-slow
-                                hover:animate-scale-up
+                                hover:animate-pulse-fast
                         ">
                             <div className="w-16 h-16 mr-4 relative">
                                 <Image
