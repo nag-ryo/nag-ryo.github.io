@@ -2,8 +2,9 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
     output: 'export',
-    // basePath: '/nag-ryo.github.io',
-    // assetPrefix: '/nag-ryo.github.io/',
+    env: {
+        NEXT_PUBLIC_BASE_PATH: '/nag-ryo.github.io',
+    },
     images: { unoptimized: true },
 };
 
