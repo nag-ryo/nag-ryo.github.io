@@ -1,10 +1,8 @@
-[URL](https://nag-ryo.github.io/)
-サイト管理のためのリポジトリです。
-日々インプットしているプログラミングなどに関する技術情報をまとめています。
+「[Nag Note](https://nag-ryo.github.io/)」のサイト管理のためのリポジトリです。  
+日々インプットしているプログラミングなどに関する技術情報をまとめています。  
 
-デプロイ用ブランチ: gh-pages
+デプロイ方法: Github Actions
 
-`npm run deploy`コマンドを実施することで反映されます。
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
