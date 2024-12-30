@@ -10,10 +10,10 @@ export default function Header() {
                 href="/"
                 className="mr-4 w-10 h-10 relative">
                 <Image
-                    src="/icon.png"
+                    src="/images/icon.png"
                     alt="Logo"
-                    fill
-                    className="object-contain"
+                    width={64}
+                    height={64}
                 />
             </Link>
             <Link href="/">

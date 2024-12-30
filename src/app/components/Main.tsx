@@ -53,8 +53,9 @@ export default function Main() {
                                 <Image
                                     src={item.imgSrc}
                                     alt={item.title}
-                                    layout="fill"
-                                    objectFit="cover"
+                                    width={64}
+                                    height={64}
+                                    unoptimized={true}
                                 />
                             </div>
                             <div>
