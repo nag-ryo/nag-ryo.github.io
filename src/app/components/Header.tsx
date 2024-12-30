@@ -5,7 +5,6 @@ import Link from 'next/link';
 export default function Header() {
     return (
         <header className="bg-white shadow-md p-4 flex items-center">
-            {/* ロゴ画像（public/icon.png） */}
             <Link
                 href="/"
                 className="mr-4 w-10 h-10 relative">

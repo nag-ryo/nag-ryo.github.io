@@ -1,8 +1,4 @@
-const getSrc = (name: string, extension: string) => {
-    return `/images/${name}.${extension}`;
-};
-
-// 表示する項目をまとめた配列
+/** 表示する項目をまとめた配列 */
 export const Items = [
     {
         title: 'Angular',
@@ -25,7 +21,7 @@ export const Items = [
     {
         title: 'Develop',
         desc: 'その他開発に関する情報。企業アイコンのソースなど。',
-        imgSrc: getSrc('develop', 'png'),
+        imgSrc: '/images/develop.png',
         link: '/develop',
     },
 ];

@@ -17,7 +17,7 @@ export default function AngularPage() {
                             href="https://angular.jp/"
                             target="_blank"
                             className="hover:animate-pulse-fast">
-                            公式ドキュメント
+                            公式ドキュメント(外部ページ)
                         </a>
                     </li>
                     <li>
