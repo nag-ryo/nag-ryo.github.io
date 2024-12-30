@@ -7,19 +7,19 @@ export const Items = [
     {
         title: 'Angular',
         desc: 'Google製のフレームワーク Angular の使い方を学ぼう。',
-        imgSrc: getSrc('vercel', 'svg'),
+        imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angular/angular-original.svg',
         link: '/angular',
     },
     {
         title: 'React',
         desc: 'Facebook製のフレームワーク React の使い方を学ぼう。',
-        imgSrc: getSrc('react', 'svg'),
+        imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg',
         link: '/react',
     },
     {
         title: 'Git',
         desc: 'GitやGitHubの使い方など。',
-        imgSrc: getSrc('github-original', 'svg'),
+        imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg',
         link: '/git',
     },
     {
