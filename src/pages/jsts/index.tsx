@@ -8,7 +8,7 @@ export default function JsTsPage() {
                     <Link href="/">HOME</Link> &gt; JS/TS
                 </nav>
 
-                <h1 className="text-2xl font-bold mb-4">Angular</h1>
+                <h1 className="text-2xl font-bold mb-4">JS/TS</h1>
                 <section>
                     <h2 className={styles.sectionTitle}>はじめに</h2>
                     <ul>
@@ -17,7 +17,15 @@ export default function JsTsPage() {
                                 href="https://angular.jp/"
                                 target="_blank"
                                 className="hover:animate-pulse-fast">
-                                公式ドキュメント(外部ページ)
+                                Javascript公式ドキュメント(外部ページ)
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="https://angular.jp/"
+                                target="_blank"
+                                className="hover:animate-pulse-fast">
+                                Typescript公式ドキュメント(外部ページ)
                             </a>
                         </li>
                         <li>
