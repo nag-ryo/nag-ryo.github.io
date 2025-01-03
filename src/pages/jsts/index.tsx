@@ -28,13 +28,6 @@ export default function JsTsPage() {
                                 Typescript公式ドキュメント(外部ページ)
                             </a>
                         </li>
-                        <li>
-                            <Link
-                                href="/angular/news"
-                                className="hover:animate-pulse-fast">
-                                更新情報(不定期)
-                            </Link>
-                        </li>
                     </ul>
                 </section>
             </div>
