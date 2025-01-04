@@ -1,7 +1,7 @@
 import Link from 'next/link';
-import styles from './jsts.module.css';
+import styles from './git.module.css';
 
-export default function JsTsPage() {
+export default function GitPage() {
     return (
         <div className="p-4">
             <nav className={styles.breadcrumb}>

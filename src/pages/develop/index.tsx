@@ -1,7 +1,7 @@
 import Link from 'next/link';
-import styles from './php.module.css';
+import styles from './develop.module.css';
 
-export default function PhpPage() {
+export default function DevelopPage() {
     return (
         <div className="p-4">
             <nav className={styles.breadcrumb}>
