@@ -21,7 +21,7 @@ export async function getStaticProps({ params }: { params: { slug: string } }) {
     };
 }
 
-export default function Post({ postData }: { postData: any }) {
+export default function Post({ postData }: { postData: { title: string; contentHtml: string } }) {
     return (
         <>
             <h1 className="text-4xl font-bold">{postData.title}</h1>

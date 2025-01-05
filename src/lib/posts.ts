@@ -37,7 +37,7 @@ export function getSortedPostsData() {
             return {
                 slug,
                 ...matterResult.data,
-            } as any; // TODO: anyを外す
+            } as { slug: string; date: string; description: string; title: string; category: string };
         }
     );
 
