@@ -1,14 +1,14 @@
 import Link from 'next/link';
-import styles from './jsts.module.css';
+import styles from './typescript.module.css';
 
-export default function JsTsPage() {
+export default function TypescriptPage() {
     return (
         <div className="p-4">
             <nav className={styles.breadcrumb}>
-                <Link href="/">HOME</Link> &gt; JS/TS
+                <Link href="/">HOME</Link> &gt; Typescript
             </nav>
 
-            <h1 className="text-2xl font-bold mb-4">JS/TS</h1>
+            <h1 className="text-2xl font-bold mb-4">Typescript</h1>
             <section>
                 <h2 className={styles.sectionTitle}>はじめに</h2>
                 <ul>
@@ -27,6 +27,9 @@ export default function JsTsPage() {
                             className="hover:animate-pulse-fast">
                             Typescript公式ドキュメント(外部ページ)
                         </a>
+                    </li>
+                    <li>
+                        <Link href="/typescript/post1">テストページ</Link>
                     </li>
                 </ul>
             </section>

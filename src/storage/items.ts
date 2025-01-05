@@ -1,10 +1,10 @@
 /** 表示する項目をまとめた配列 */
 export const Items = [
     {
-        title: 'JS/TS',
-        desc: 'JavascriptとTypescriptについてまとめています。必須級の言語。',
+        title: 'Typescript',
+        desc: 'Javascriptについてもまとめています。必須級の言語。',
         imgSrc: '',
-        link: '/jsts',
+        link: '/typescript',
     },
     {
         title: 'Angular',
@@ -26,7 +26,7 @@ export const Items = [
     },
     {
         title: 'PHP',
-        desc:'',
+        desc: '',
         imgSrc: '',
         link: '/php',
     },

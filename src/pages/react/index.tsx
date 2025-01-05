@@ -17,15 +17,7 @@ export default function ReactPage() {
                             href="https://angular.jp/"
                             target="_blank"
                             className="hover:animate-pulse-fast">
-                            Javascript公式ドキュメント(外部ページ)
-                        </a>
-                    </li>
-                    <li>
-                        <a
-                            href="https://angular.jp/"
-                            target="_blank"
-                            className="hover:animate-pulse-fast">
-                            Typescript公式ドキュメント(外部ページ)
+                            React公式ドキュメント(外部ページ)
                         </a>
                     </li>
                 </ul>
