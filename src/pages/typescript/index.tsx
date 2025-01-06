@@ -33,6 +33,14 @@ export default function TypescriptPage() {
                     </li>
                 </ul>
             </section>
+            <section>
+                <h2 className={styles.sectionTitle}>ナレッジ</h2>
+                <ul>
+                    <li>
+                        <Link href="/typescript/filter-await">filterの頭にawaitを置いても同期はしない</Link>
+                    </li>
+                </ul>
+            </section>
         </div>
     );
 }
