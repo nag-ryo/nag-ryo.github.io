@@ -3,7 +3,7 @@ export const Items = [
     {
         title: 'Typescript',
         desc: 'Javascriptについてもまとめています。必須級の言語。',
-        imgSrc: '',
+        imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg',
         link: '/typescript',
     },
     {
@@ -27,7 +27,7 @@ export const Items = [
     {
         title: 'PHP',
         desc: '',
-        imgSrc: '',
+        imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg',
         link: '/php',
     },
     {
