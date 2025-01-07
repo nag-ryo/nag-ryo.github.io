@@ -28,9 +28,6 @@ export default function TypescriptPage() {
                             Typescript公式ドキュメント(外部ページ)
                         </a>
                     </li>
-                    <li>
-                        <Link href="/typescript/post1">テストページ</Link>
-                    </li>
                 </ul>
             </section>
             <section>
@@ -38,6 +35,9 @@ export default function TypescriptPage() {
                 <ul>
                     <li>
                         <Link href="/typescript/filter-await">filterの頭にawaitを置いても同期はしない</Link>
+                    </li>
+                    <li>
+                        <Link href="/typescript/array-at">TSの配列アクセスでundefined考慮</Link>
                     </li>
                 </ul>
             </section>
