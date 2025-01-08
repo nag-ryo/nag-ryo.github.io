@@ -36,7 +36,8 @@ TypeScriptのfilterではawaitは同期されない。
 // 奇数です
 ```
 
-Promise.allを置いても結果は同じ
+Promise.allを置いても結果は同じ。
+
 ```ts
 (async () => {
 
