@@ -28,16 +28,19 @@ export default function TypescriptPage() {
                             Typescript公式ドキュメント(外部ページ)
                         </a>
                     </li>
+                    <li>
+                        なぜTypescriptを使うのか？
+                    </li>
                 </ul>
             </section>
             <section>
                 <h2 className={styles.sectionTitle}>ナレッジ</h2>
                 <ul>
                     <li>
-                        <Link href="/typescript/filter-await">filterの頭にawaitを置いても同期はしない</Link>
+                        <Link href="/typescript/filter-await" className="hover:animate-pulse-fast">filterの頭にawaitを置いても同期はしない</Link>
                     </li>
                     <li>
-                        <Link href="/typescript/array-at">TSの配列アクセスでundefined考慮</Link>
+                        <Link href="/typescript/array-at" className="hover:animate-pulse-fast">TSの配列アクセスでundefined考慮</Link>
                     </li>
                 </ul>
             </section>

@@ -19,6 +19,12 @@ export const Items = [
         link: '/react',
     },
     {
+        title: 'Tailwind CSS',
+        desc: 'モダンなCSSフレームワーク Tailwind CSS の使い方を学ぼう。',
+        imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg',
+        link: '/tailwindcss',
+    },
+    {
         title: 'Git',
         desc: 'GitやGitHubの使い方など。',
         imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg',

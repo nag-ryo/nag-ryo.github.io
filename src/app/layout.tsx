@@ -13,7 +13,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <Header />
             <div className="flex">
                 {!isHomePage && <SidebarRight />}
-                <main className="flex-grow">{children}</main>
+                <main className="flex-grow p-8">{children}</main>
                 {!isHomePage && <SidebarRight />}
             </div>
             <Footer />

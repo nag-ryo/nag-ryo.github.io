@@ -20,6 +20,9 @@ export default function ReactPage() {
                             React公式ドキュメント(外部ページ)
                         </a>
                     </li>
+                    <li>
+                        なぜReactを使うのか？
+                    </li>
                 </ul>
             </section>
         </div>
