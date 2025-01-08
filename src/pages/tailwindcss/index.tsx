@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import styles from './react.module.css';
+import styles from './tailwindcss.module.css';
 
 export default function ReactPage() {
     return (
