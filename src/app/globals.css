@@ -22,6 +22,47 @@ li {
   list-style-type: disc;
 }
 
+h1 {
+  @apply text-4xl font-bold mt-4 mb-2;
+  position: relative;
+  background-color: var(--primary); /* 背景色を設定 */
+  color: var(--background); /* 文字色を設定 */
+  padding: 1rem; /* 内側の余白を追加 */
+  border-radius: 0.5rem; /* 角を丸くする */
+}
+
+h2 {
+  @apply text-3xl font-semibold mt-5 mb-3;
+  position: relative;
+}
+
+h2::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: var(--primary);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+h3 {
+  @apply text-2xl font-medium mt-4 mb-2;
+}
+
+h4 {
+  @apply text-xl font-medium mt-3 mb-2;
+}
+
+p {
+  @apply text-base leading-relaxed mb-4;
+}
+
+pre {
+  @apply bg-gray-100 p-4 rounded-lg overflow-x-auto;
+  background-color: var(--code-bg); /* 薄いグレーの背景色を設定 */
+}
 
 /* Markdown用のスタイル群 */
 .markdown h1 {
