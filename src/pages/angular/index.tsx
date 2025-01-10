@@ -1,16 +1,15 @@
 import Link from 'next/link';
-import styles from './angular.module.css';
 
 export default function AngularPage() {
     return (
         <div className="p-4">
-            <nav className={styles.breadcrumb}>
+            <nav>
                 <Link href="/">HOME</Link> &gt; Angular
             </nav>
 
             <h1 className="text-2xl font-bold mb-4">Angular</h1>
             <section>
-                <h2 className={styles.sectionTitle}>はじめに</h2>
+                <h2>はじめに</h2>
                 <ul>
                     <li>
                         <a
