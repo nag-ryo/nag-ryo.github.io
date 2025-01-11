@@ -26,6 +26,13 @@ export default function AngularPage() {
                             更新情報(不定期)
                         </Link>
                     </li>
+                    <li>
+                        <Link
+                            href="/angular/why"
+                            className="hover:animate-pulse-fast">
+                            なぜAngularを使うのか？
+                        </Link>
+                    </li>
                 </ul>
             </section>
         </div>
