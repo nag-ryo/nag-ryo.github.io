@@ -1,15 +1,14 @@
 import Link from 'next/link';
-import styles from './angular.module.css';
 
 export default function AngularNewsPage() {
     return (
         <div className="p-4">
-            <nav className={styles.breadcrumb}>
+            <nav>
                 <Link href="/">HOME</Link> &gt; <Link href="/angular">Angular</Link> &gt; News
             </nav>
 
             <h1 className="text-2xl font-bold mb-4">Angular News</h1>
-            <h2 className={styles.sectionTitle}>最新ニュース</h2>
+            <h2>最新ニュース</h2>
             <ul>
                 <li>
                     <a
