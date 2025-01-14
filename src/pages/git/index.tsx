@@ -11,22 +11,11 @@ export default function GitPage() {
             <section>
                 <h2>はじめに</h2>
                 <ul>
-                    <li>
-                        <a
-                            href="https://angular.jp/"
-                            target="_blank"
-                            className="hover:animate-pulse-fast">
-                            Javascript公式ドキュメント(外部ページ)
-                        </a>
-                    </li>
-                    <li>
-                        <a
-                            href="https://angular.jp/"
-                            target="_blank"
-                            className="hover:animate-pulse-fast">
-                            Typescript公式ドキュメント(外部ページ)
-                        </a>
-                    </li>
+                    <Link
+                        href="/git/why"
+                        className="hover:animate-pulse-fast">
+                        なぜGitを使うのか？
+                    </Link>
                 </ul>
             </section>
         </div>
