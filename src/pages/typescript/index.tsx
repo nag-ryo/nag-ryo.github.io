@@ -42,6 +42,9 @@ export default function TypescriptPage() {
                     <li>
                         <Link href="/typescript/array-at" className="hover:animate-pulse-fast">TSの配列アクセスでundefined考慮</Link>
                     </li>
+                    <li>
+                        <Link href="/typescript/pbcopy" className="hover:animate-pulse-fast">Node.jsでpbcopy</Link>
+                    </li>
                 </ul>
             </section>
         </div>
