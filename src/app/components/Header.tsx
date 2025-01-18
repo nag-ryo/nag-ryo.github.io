@@ -1,6 +1,7 @@
 'use client';
 import Image from 'next/image';
 import Link from 'next/link';
+import styles from './Header.module.css';
 
 export default function Header() {
     return (
@@ -15,8 +16,8 @@ export default function Header() {
                     height={64}
                 />
             </Link>
-            <Link href="/">
-                <h1 className="text-xl font-bold">Nag Note</h1>
+            <Link href="/" className={styles.title}>
+                Nag Note
             </Link>
         </header>
     );
