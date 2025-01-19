@@ -29,7 +29,7 @@ export default function TypescriptPage() {
                         </a>
                     </li>
                     <li>
-                        なぜTypescriptを使うのか？
+                        <Link href="/typescript/filter-await" className="hover:animate-pulse-fast">なぜTypescriptを使うのか？</Link>
                     </li>
                 </ul>
             </section>
