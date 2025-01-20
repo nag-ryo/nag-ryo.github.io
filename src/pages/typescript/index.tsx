@@ -45,6 +45,9 @@ export default function TypescriptPage() {
                     <li>
                         <Link href="/typescript/pbcopy" className="hover:animate-pulse-fast">Node.jsでpbcopy</Link>
                     </li>
+                    <li>
+                        <Link href="/typescript/invalid-date" className="hover:animate-pulse-fast">Invalid Dateを判定すること</Link>
+                    </li>
                 </ul>
             </section>
         </div>
