@@ -3,8 +3,6 @@
 
 デプロイ方法: Github Actions
 
-TODO:
-- [ ] 各カテゴリのindexページの記事はpostディレクトリから取得し、自動で羅列されるようにする
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
