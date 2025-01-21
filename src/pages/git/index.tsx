@@ -16,6 +16,11 @@ export default function GitPage() {
                         className="hover:animate-pulse-fast">
                         なぜGitを使うのか？
                     </Link>
+                    <Link
+                        href="/git/index-lock"
+                        className="hover:animate-pulse-fast">
+                        index.lockとは？
+                    </Link>
                 </ul>
             </section>
         </div>
