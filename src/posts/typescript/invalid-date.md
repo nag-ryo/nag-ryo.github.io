@@ -5,7 +5,7 @@ description: "This is my first blog post written in Markdown."
 category: "typescript"
 ---
 
-`new Date()`の引数に不正なものを渡した場合、作成された[[インスタンス]]がInvalid Dateになってしまうため、使用する際はInvalid Dateのチェックをしておきたい。
+`new Date()`の引数に不正なものを渡した場合、作成されたインスタンスがInvalid Dateになってしまうため、使用する際はInvalid Dateのチェックをしておきたい。
 
 しかし、基本的には比較して検証する方法はない。
 ```js
