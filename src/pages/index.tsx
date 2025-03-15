@@ -1,70 +1,65 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGithub } from '@fortawesome/free-brands-svg-icons';
-import { Items } from '@/storage/items';
+import { format } from 'date-fns';
+import { faRss } from '@fortawesome/free-solid-svg-icons';
+import Button from '@/app/components/ui/button';
+import { getBlogData } from '@/lib/blog-service';
+import { IBlog } from '@/interfaces/i-blog';
 
-export default function HomePage() {
+/**
+ * データをAPIから取得、テンプレートに受け渡す
+ */
+export const getStaticProps = async () => {
+    const blog = await getBlogData();
+
+    return {
+        props: {
+            blog,
+        },
+    };
+};
+
+export default function HomePage({ blog }: { blog: IBlog[] }) {
     return (
-        <main className="p-4 bg-gray-100 min-h-screen">
-            {/* 上部メッセージ */}
-            <div className="mb-8 bg-white p-6 shadow-md">
-                <h2 className="text-xl font-bold mb-2">日々のインプットをアウトプットします。毎日コミット実践中!</h2>
-                <p className="text-sm text-gray-600">ドキュメントのメモ・技術書レビュー・ナレッジを書き溜めます。</p>
+        <main className='pt-8 pb-8'>
 
-                {/* SNSボタン的なもの */}
-                <div className="mt-4 flex space-x-2">
-                    <a
-                        href="https://github.com/nag-ryo"
-                        target="_blank"
-                        rel="noopener noreferrer">
-                        <button className="bg-gray-800 text-white px-3 py-2 rounded transition-colors duration-300 hover:bg-gray-500 flex items-center">
-                            <FontAwesomeIcon
-                                icon={faGithub}
-                                className="mr-2"
-                            />
-                            GitHub
-                        </button>
-                    </a>
+            {/* ナビゲーション */}
+            <nav className="flex gap-2 mb-8 items-center justify-between">
+                <div className="flex gap-2">
+                    <Button variant="outlined" size="small">すべて</Button>
+                    <Button variant="outlined" size="small">Tech</Button>
+                    <Button variant="outlined" size="small">Idea</Button>
+                    <Button variant="outlined" size="small">Diary</Button>
                 </div>
-            </div>
+                <Button variant="outlined" size="small">
+                    <FontAwesomeIcon icon={faRss} className="h-4 w-4" />
+                </Button>
+            </nav>
 
-            {/* アイテム一覧 */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {Items.map((item, index) => (
-                    <Link
-                        href={item.link}
-                        key={index}>
-                        <div
-                            className="
-                                flex
-                                items-center
-                                bg-white
-                                p-4
-                                shadow-md
-                                rounded
-                                transition-colors
-                                duration-300
-                                hover:bg-gray-200
-                                hover:animate-pulse-fast
-                        ">
-                            <div className="w-16 h-16 mr-4 relative">
-                                <Image
-                                    src={item.imgSrc}
-                                    alt={item.title}
-                                    width={64}
-                                    height={64}
-                                    unoptimized={true}
-                                />
-                            </div>
-                            <div>
-                                <h3 className="text-lg font-bold">{item.title}</h3>
-                                <p className="text-sm text-gray-600">{item.desc}</p>
-                            </div>
+            {/* ブログ記事 */}
+            <div className="space-y-8">
+            {blog.map(({ id, title, tags: tags, createdAt }) => (
+                    <article key={id}>
+                        <time className="text-sm text-gray-500 block">{format(new Date(createdAt), 'yyyy/MM/dd')}</time>
+                        <div className="text-lg font-medium">
+                            <Link href={`/posts/${id}`} className="font-semibold underline mb-1">
+                                {title}
+                            </Link>
                         </div>
-                    </Link>
+                        <div className="flex gap-2">
+                            {tags.map((tag, index) => (
+                                <span
+                                    key={index}
+                                    className="bg-blue-50 text-blue-700 px-2 py-0.5 rounded text-sm"
+                                >
+                                    {tag.name}
+                                </span>
+                            ))}
+                        </div>
+                    </article>
                 ))}
             </div>
+
         </main>
     );
 }
