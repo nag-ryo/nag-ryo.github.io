@@ -5,6 +5,7 @@ import { faRss } from '@fortawesome/free-solid-svg-icons';
 import Button from '@/app/components/ui/button';
 import { getBlogData } from '@/lib/blog-service';
 import { IBlog } from '@/interfaces/i-blog';
+import { CATEGORY } from '@/interfaces/i-category';
 
 /**
  * データをAPIから取得、テンプレートに受け渡す
@@ -13,8 +14,19 @@ export const getStaticProps = async () => {
     const posts = await getBlogData();
 
     posts.map(post => {
-        post.tags.unshift(post.category);
-    })
+        switch (post.category.name) {
+            case CATEGORY.TECH:
+                post.tags.unshift({ ...post.category, color: 'blue' });
+                break;
+            case CATEGORY.IDEA:
+                post.tags.unshift({ ...post.category, color: 'red' });
+                break;
+            case CATEGORY.DIARY:
+            default:
+                post.tags.unshift({ ...post.category, color: 'green' });
+                break;
+        }
+    });
 
     return {
         props: {
@@ -30,10 +42,11 @@ export default function HomePage({ blog }: { blog: IBlog[] }) {
             {/* ナビゲーション */}
             <nav className="flex gap-2 mb-8 items-center justify-between">
                 <div className="flex gap-2">
+                    {/* 選択済みだけをcontainedにする。 */}
                     <Button variant="outlined" size="small">すべて</Button>
-                    <Button variant="outlined" size="small">Tech</Button>
-                    <Button variant="outlined" size="small">Idea</Button>
-                    <Button variant="outlined" size="small">Diary</Button>
+                    <Button variant="contained" size="small">{CATEGORY.TECH}</Button>
+                    <Button variant="outlined" size="small">{CATEGORY.IDEA}</Button>
+                    <Button variant="outlined" size="small">{CATEGORY.DIARY}</Button>
                 </div>
                 <Button variant="outlined" size="small">
                     <FontAwesomeIcon icon={faRss} className="h-4 w-4" />
@@ -51,14 +64,19 @@ export default function HomePage({ blog }: { blog: IBlog[] }) {
                             </Link>
                         </div>
                         <div className="flex gap-2">
-                            {tags.map((tag, index) => (
-                                <span
-                                    key={index}
-                                    className="bg-blue-50 text-blue-700 px-2 py-0.5 rounded text-sm"
-                                >
-                                    {tag.name}
-                                </span>
-                            ))}
+                            {tags.map((tag, index) => {
+                                if (tag.color == null) {
+                                    tag.color = 'blue';
+                                }
+                                return (
+                                    <span
+                                        key={index}
+                                        className={`bg-${tag.color}-50 text-${tag.color}-700 px-2 py-0.5 rounded text-sm`}
+                                    >
+                                        {tag.name}
+                                    </span>
+                                );
+                            })}
                         </div>
                     </article>
                 ))}

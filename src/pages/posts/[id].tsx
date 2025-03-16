@@ -4,6 +4,7 @@ import { IBlog } from '@/interfaces/i-blog';
 import { getBlogData } from '@/lib/blog-service';
 import { Box, Link } from '@mui/material';
 import Head from 'next/head';
+import { CATEGORY } from '@/interfaces/i-category';
 
 export default function BlogId({ blog, isPreview }: { blog: IBlog; isPreview: boolean }) {
 
@@ -22,11 +23,16 @@ export default function BlogId({ blog, isPreview }: { blog: IBlog; isPreview: bo
                     </div>
                     <div className="text-2xl font-semibold mb-1">{blog.title}</div>
                     <div className="flex gap-2">
-                        {blog.tags.map(({ id, name }) => (
-                            <span key={id} className="bg-blue-50 text-blue-700 px-2 py-0.5 rounded text-sm">
-                                {name}
-                            </span>
-                        ))}
+                        {blog.tags.map(({ id, name, color }) => {
+                            if (color == null) {
+                                color = 'blue';
+                            }
+                            return(
+                                <span key={id} className={`bg-${color}-50 text-${color}-700 px-2 py-0.5 rounded text-sm`}>
+                                    {name}
+                                </span>
+                            );
+                        })}
                     </div>
                 </section>
                 <div>
@@ -88,13 +94,24 @@ export const getStaticProps = async (context: any) => {
         };
     } else {
         const id = context.params.id;
-        const data: IBlog = await client.get({ endpoint: 'blog', contentId: id });
+        const post: IBlog = await client.get({ endpoint: 'blog', contentId: id });
 
-        data.tags.unshift(data.category);
+        switch (post.category.name) {
+            case CATEGORY.TECH:
+                post.tags.unshift({ ...post.category, color: 'blue' });
+                break;
+            case CATEGORY.IDEA:
+                post.tags.unshift({ ...post.category, color: 'red' });
+                break;
+            case CATEGORY.DIARY:
+            default:
+                post.tags.unshift({ ...post.category, color: 'green' });
+                break;
+        }
 
         return {
             props: {
-                blog: data,
+                blog: post,
             },
         };
     }

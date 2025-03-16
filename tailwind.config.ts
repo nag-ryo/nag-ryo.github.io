@@ -34,4 +34,12 @@ export default {
         },
     },
     plugins: [],
+    safelist: [
+        {
+          pattern: /bg-(blue|red|green|yellow|emerald|gray)-50/, // 背景色
+        },
+        {
+          pattern: /text-(blue|red|green|yellow|emerald|gray)-700/, // テキスト色
+        },
+    ],
 } satisfies Config;
