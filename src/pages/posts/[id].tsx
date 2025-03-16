@@ -21,7 +21,7 @@ export default function BlogId({ blog, isPreview }: { blog: IBlog; isPreview: bo
                         <time className="text-sm text-gray-500 block">作成日時：{format(new Date(blog.createdAt), 'yyyy/MM/dd')}</time>
                         <time className="text-sm text-gray-500 block">更新日時：{format(new Date(blog.updatedAt), 'yyyy/MM/dd')}</time>
                     </div>
-                    <div className="text-2xl font-semibold mb-1">{blog.title}</div>
+                    <h1 className='mb-1'>{blog.title}</h1>
                     <div className="flex gap-2">
                         {blog.tags.map(({ id, name, color }) => {
                             if (color == null) {
