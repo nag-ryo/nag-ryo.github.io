@@ -18,6 +18,11 @@ jobs:
         run: npm install
 
       - name: Build project
+        env:
+          MICRO_CMS_API_KEY: ${{ secrets.MICRO_CMS_API_KEY }}
+          MICRO_CMS_SERVICE_DOMAIN: ${{ secrets.MICRO_CMS_SERVICE_DOMAIN }}
+          MICRO_CMS_ENDPOINT_BLOG: ${{ secrets.MICRO_CMS_ENDPOINT_BLOG }}
+          PREVIEW_SECRET: ${{ secrets.PREVIEW_SECRET }}
         run: npm run build
 
       - name: Deploy to GitHub Pages
