@@ -71,7 +71,7 @@ export default function HomePage({ blog }: { blog: IBlog[] }) {
                                 return (
                                     <span
                                         key={index}
-                                        className={`bg-${tag.color}-50 text-${tag.color}-700 px-2 py-0.5 rounded text-sm`}
+                                        className={`bg-${tag.color}-100 text-${tag.color}-700 px-2 py-0.5 rounded text-sm`}
                                     >
                                         {tag.name}
                                     </span>

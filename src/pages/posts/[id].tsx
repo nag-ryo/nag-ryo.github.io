@@ -28,7 +28,7 @@ export default function BlogId({ blog, isPreview }: { blog: IBlog; isPreview: bo
                                 color = 'blue';
                             }
                             return(
-                                <span key={id} className={`bg-${color}-50 text-${color}-700 px-2 py-0.5 rounded text-sm`}>
+                                <span key={id} className={`bg-${color}-100 text-${color}-700 px-2 py-0.5 rounded text-sm`}>
                                     {name}
                                 </span>
                             );

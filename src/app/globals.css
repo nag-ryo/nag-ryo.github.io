@@ -48,7 +48,7 @@ h3 {
 }
 
 h4 {
-  @apply text-xl font-medium;
+  @apply text-lg leading-tight font-medium mt-6 mb-1;
 }
 
 p {
