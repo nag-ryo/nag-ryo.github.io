@@ -10,11 +10,15 @@ import { IBlog } from '@/interfaces/i-blog';
  * データをAPIから取得、テンプレートに受け渡す
  */
 export const getStaticProps = async () => {
-    const blog = await getBlogData();
+    const posts = await getBlogData();
+
+    posts.map(post => {
+        post.tags.unshift(post.category);
+    })
 
     return {
         props: {
-            blog,
+            blog: posts,
         },
     };
 };
