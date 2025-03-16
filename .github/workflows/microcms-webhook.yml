@@ -11,14 +11,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 環境変数のデバッグ用
-      - name: Debug environment variables
-        run: echo "MICRO_CMS_SERVICE_DOMAIN=$MICRO_CMS_SERVICE_DOMAIN"
-        env:
-          MICRO_CMS_SERVICE_DOMAIN: ${{ secrets.MICRO_CMS_SERVICE_DOMAIN }}
-
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Debug environment variables
+        run: |
+          echo "MICRO_CMS_API_KEY=$MICRO_CMS_API_KEY"
+          echo "MICRO_CMS_SERVICE_DOMAIN=$MICRO_CMS_SERVICE_DOMAIN"
+          echo "MICRO_CMS_ENDPOINT_BLOG=$MICRO_CMS_ENDPOINT_BLOG"
+          echo "PREVIEW_SECRET=$PREVIEW_SECRET"
+        env:
+          MICRO_CMS_API_KEY: ${{ secrets.MICRO_CMS_API_KEY }}
+          MICRO_CMS_SERVICE_DOMAIN: ${{ secrets.MICRO_CMS_SERVICE_DOMAIN }}
+          MICRO_CMS_ENDPOINT_BLOG: ${{ secrets.MICRO_CMS_ENDPOINT_BLOG }}
+          PREVIEW_SECRET: ${{ secrets.PREVIEW_SECRET }}
 
       - name: Install dependencies
         run: npm install
