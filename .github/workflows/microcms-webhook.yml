@@ -1,0 +1,24 @@
+name: Trigger Build on microCMS Webhook
+
+on:
+  workflow_dispatch: # 手動実行用（デバッグ用）
+  repository_dispatch: # Webhookでトリガーされるイベント
+    types:
+      - microcms-content-updated
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build project
+        run: npm run build
+
+      - name: Deploy to GitHub Pages
+        run: npm run deploy
