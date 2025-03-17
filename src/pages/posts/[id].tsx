@@ -11,7 +11,7 @@ export default function BlogId({ blog, isPreview }: { blog: IBlog; isPreview: bo
     return (
         <article className='pt-16 pb-16'>
             <Head>
-                <title>Post</title>
+                <title>{blog.title} | Nag&apos;s Blog</title>
                 <meta name="description" content="「Nag's Blog」の各記事の画面です。" />
                 <meta name="keywords" content="ブログ, 詳細, 記事" />
             </Head>
