@@ -81,6 +81,7 @@ jobs:
           MICRO_CMS_SERVICE_DOMAIN: ${{ secrets.MICRO_CMS_SERVICE_DOMAIN }}
           MICRO_CMS_ENDPOINT_BLOG: ${{ secrets.MICRO_CMS_ENDPOINT_BLOG }}
           PREVIEW_SECRET: ${{ secrets.PREVIEW_SECRET }}
+          NEXT_PUBLIC_GA_TRACKING_ID: ${{ secrets.NEXT_PUBLIC_GA_TRACKING_ID }}
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
