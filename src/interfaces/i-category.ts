@@ -5,9 +5,9 @@ export interface ICategory extends ICmsBaseData {
 }
 
 export const CATEGORY = {
-    TECH: 'Tech',
-    IDEA: 'Idea',
-    DIARY: 'Diary',
+    TECH: 'tech',
+    IDEA: 'idea',
+    DIARY: 'diary',
 } as const;
 
 // CATEGORYの型を取得

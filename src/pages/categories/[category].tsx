@@ -8,11 +8,27 @@ import { IBlog } from '@/interfaces/i-blog';
 import { CATEGORY } from '@/interfaces/i-category';
 import Head from 'next/head';
 
+export const getStaticPaths = async () => {
+    const categories = Object.values(CATEGORY);
+
+    /** 各カテゴリに対して動的ルートのパスを生成 */
+    const paths = categories.map((category) => ({
+        params: { category: category.toLowerCase() },
+    }));
+
+    // 生成されたパスの配列を返す
+    return { paths, fallback: false };
+}
+
 /**
  * データをAPIから取得、テンプレートに受け渡す
  */
-export const getStaticProps = async () => {
-    const posts = await getBlogData();
+export const getStaticProps = async (context: { params: { category: string } }) => {
+    const { category } = context.params;
+
+    /** 指定されたカテゴリに絞り込んだ記事 */
+    const posts = (await getBlogData())
+        .filter(post => post.category.name.toLowerCase() === category.toLowerCase());
 
     posts.map(post => {
         switch (post.category.name) {
@@ -32,28 +48,36 @@ export const getStaticProps = async () => {
     return {
         props: {
             blog: posts,
+            category,
         },
     };
 };
 
-export default function HomePage({ blog }: { blog: IBlog[] }) {
+export default function HomePage({ blog, category }: { blog: IBlog[], category: string }) {
     return (
         <>
             <Head>
-                <title>Nag&apos;s Blog</title>
-                <meta name="description" content="「Nag's Blog」の各記事の画面です。" />
-                <meta name="keywords" content="ブログ, 詳細, 記事" />
+                <title>{`Nag's Blog - ${category}`}</title>
+                <meta name="description" content={`「Nag's Blog」の${category}カテゴリの記事一覧です。`} />
+                <meta name="keywords" content={`ブログ, ${category}, 記事`} />
             </Head>
             <main className='pt-8 pb-8'>
 
                 {/* ナビゲーション */}
                 <nav className="flex gap-2 mb-8 items-center justify-between">
                     <div className="flex gap-2">
-                        {/* 選択済みだけをcontainedにする。 */}
-                        <Link href="/"><Button variant="contained" size="small">すべて</Button></Link>
-                        <Link href="/categories/tech"><Button variant="outlined" size="small">{CATEGORY.TECH}</Button></Link>
-                        <Link href="/categories/idea"><Button variant="outlined" size="small">{CATEGORY.IDEA}</Button></Link>
-                        <Link href="/categories/diary"><Button variant="outlined" size="small">{CATEGORY.DIARY}</Button></Link>
+                        <Link href="/">
+                            <Button variant="outlined" size="small">すべて</Button>
+                        </Link>
+                        <Link href={`/categories/${CATEGORY.TECH}`}>
+                            <Button variant={category === CATEGORY.TECH ? "contained" : "outlined"} size="small">{CATEGORY.TECH}</Button>
+                        </Link>
+                        <Link href={`/categories/${CATEGORY.IDEA}`}>
+                            <Button variant={category === CATEGORY.IDEA ? "contained" : "outlined"} size="small">{CATEGORY.IDEA}</Button>
+                        </Link>
+                        <Link href={`/categories/${CATEGORY.DIARY}`}>
+                            <Button variant={category === CATEGORY.DIARY ? "contained" : "outlined"} size="small">{CATEGORY.DIARY}</Button>
+                        </Link>
                     </div>
                     <Button variant="outlined" size="small">
                         <FontAwesomeIcon icon={faRss} className="h-4 w-4" />
