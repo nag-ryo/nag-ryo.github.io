@@ -3,17 +3,18 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { format } from 'date-fns';
 import { faRss } from '@fortawesome/free-solid-svg-icons';
 import Button from '@/app/components/ui/button';
-import { getBlogData } from '@/lib/blog-service';
+import { getBlogData, getTagData } from '@/lib/blog-service';
 import { IBlog } from '@/interfaces/i-blog';
 import { CATEGORY } from '@/interfaces/i-category';
 import Head from 'next/head';
 
 export const getStaticPaths = async () => {
-    const categories = Object.values(CATEGORY);
+    /** APIからタグデータを取得 */
+    const tags = await getTagData();
 
-    /** 各カテゴリに対して動的ルートのパスを生成 */
-    const paths = categories.map((category) => ({
-        params: { category: category.toLowerCase() },
+    /** 各タグに対して動的ルートのパスを生成 */
+    const paths = tags.map(tag => ({
+        params: { tag: tag.urlName.toLowerCase()},
     }));
 
     // 生成されたパスの配列を返す
@@ -23,12 +24,10 @@ export const getStaticPaths = async () => {
 /**
  * データをAPIから取得、テンプレートに受け渡す
  */
-export const getStaticProps = async (context: { params: { category: string } }) => {
-    const { category } = context.params;
-
-    /** 指定されたカテゴリに絞り込んだ記事 */
+export const getStaticProps = async (context: { params: { tag: string } }) => {
+    const { tag } = context.params;
     const posts = (await getBlogData())
-        .filter(post => post.category.name.toLowerCase() === category.toLowerCase());
+        .filter(post => post.tags.some(t => t.urlName.toLowerCase() === tag.toLowerCase()));
 
     posts.map(post => {
         switch (post.category.name) {
@@ -48,37 +47,24 @@ export const getStaticProps = async (context: { params: { category: string } }) 
     return {
         props: {
             blog: posts,
-            category,
+            tag,
         },
     };
 };
 
-export default function CategoryPage({ blog, category }: { blog: IBlog[], category: string }) {
+export default function TagPage({ blog, tag }: { blog: IBlog[], tag: string }) {
     return (
         <>
             <Head>
-                <title>{`Nag's Blog - ${category}`}</title>
-                <meta name="description" content={`「Nag's Blog」の${category}カテゴリの記事一覧です。`} />
-                <meta name="keywords" content={`ブログ, ${category}, 記事`} />
+                <title>{`Nag&apos;s Blog - Tag: ${tag}`}</title>
+                <meta name="description" content={`「Nag's Blog」の${tag}タグの記事一覧です。`} />
+                <meta name="keywords" content={`ブログ, ${tag}, 記事`} />
             </Head>
             <main className='pt-8 pb-8'>
 
                 {/* ナビゲーション */}
                 <nav className="flex gap-2 mb-8 items-center justify-between">
-                    <div className="flex gap-2">
-                        <Link href="/">
-                            <Button variant="outlined" size="small">すべて</Button>
-                        </Link>
-                        <Link href={`/categories/${CATEGORY.TECH}`}>
-                            <Button variant={category === CATEGORY.TECH ? "contained" : "outlined"} size="small">{CATEGORY.TECH}</Button>
-                        </Link>
-                        <Link href={`/categories/${CATEGORY.IDEA}`}>
-                            <Button variant={category === CATEGORY.IDEA ? "contained" : "outlined"} size="small">{CATEGORY.IDEA}</Button>
-                        </Link>
-                        <Link href={`/categories/${CATEGORY.DIARY}`}>
-                            <Button variant={category === CATEGORY.DIARY ? "contained" : "outlined"} size="small">{CATEGORY.DIARY}</Button>
-                        </Link>
-                    </div>
+                    <h1>{`# ${tag}`}</h1>
                     <Button variant="outlined" size="small">
                         <FontAwesomeIcon icon={faRss} className="h-4 w-4" />
                     </Button>
@@ -99,6 +85,7 @@ export default function CategoryPage({ blog, category }: { blog: IBlog[], catego
                                     if (tag.color == null) {
                                         tag.color = 'blue';
                                     }
+
                                     // 最初のタグはカテゴリーとして表示
                                     if (index === 0) {
                                         return (

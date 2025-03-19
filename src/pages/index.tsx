@@ -17,14 +17,14 @@ export const getStaticProps = async () => {
     posts.map(post => {
         switch (post.category.name) {
             case CATEGORY.TECH:
-                post.tags.unshift({ ...post.category, color: 'blue' });
+                post.tags.unshift({ ...post.category, color: 'blue', urlName: 'tech' });
                 break;
             case CATEGORY.IDEA:
-                post.tags.unshift({ ...post.category, color: 'red' });
+                post.tags.unshift({ ...post.category, color: 'red', urlName: 'idea' });
                 break;
             case CATEGORY.DIARY:
             default:
-                post.tags.unshift({ ...post.category, color: 'green' });
+                post.tags.unshift({ ...post.category, color: 'green', urlName: 'diary' });
                 break;
         }
     });
@@ -75,14 +75,28 @@ export default function HomePage({ blog }: { blog: IBlog[] }) {
                                     if (tag.color == null) {
                                         tag.color = 'blue';
                                     }
-                                    return (
-                                        <span
-                                            key={index}
-                                            className={`bg-${tag.color}-100 text-${tag.color}-700 px-2 py-0.5 rounded text-sm`}
-                                        >
-                                            {tag.name}
-                                        </span>
-                                    );
+                                    // 最初のタグはカテゴリーとして表示
+                                    if (index === 0) {
+                                        return (
+                                            <Link href={`/categories/${tag.urlName}`} key={index}>
+                                                <span
+                                                    className={`bg-${tag.color}-100 text-${tag.color}-700 px-2 py-0.5 rounded text-sm`}
+                                                >
+                                                    {tag.name}
+                                                </span>
+                                            </Link>
+                                        );
+                                    } else {
+                                        return (
+                                            <Link href={`/tags/${tag.urlName}`} key={index}>
+                                                <span
+                                                    className={`bg-${tag.color}-100 text-${tag.color}-700 px-2 py-0.5 rounded text-sm`}
+                                                >
+                                                    {tag.name}
+                                                </span>
+                                            </Link>
+                                        );
+                                    }
                                 })}
                             </div>
                         </article>
