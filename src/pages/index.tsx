@@ -7,7 +7,6 @@ import { getBlogData } from '@/lib/blog-service';
 import { IBlog } from '@/interfaces/i-blog';
 import { CATEGORY } from '@/interfaces/i-category';
 import Head from 'next/head';
-import styles from './index.module.css';
 
 /**
  * データをAPIから取得、テンプレートに受け渡す
@@ -67,7 +66,7 @@ export default function HomePage({ blog }: { blog: IBlog[] }) {
                         <article key={id}>
                             <time className="text-sm text-gray-500 block">{format(new Date(createdAt), 'yyyy/MM/dd')}</time>
                             <div className="text-lg font-medium">
-                                <Link href={`/posts/${id}`} className={styles.title}>
+                                <Link href={`/posts/${id}`} className='post-title'>
                                     {title}
                                 </Link>
                             </div>

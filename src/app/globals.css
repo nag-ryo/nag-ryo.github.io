@@ -87,6 +87,17 @@ pre {
     }
 }
 
+.post-title {
+  font-weight: bold;
+  text-decoration: none;
+  margin-bottom: 1rem;
+}
+
+.post-title:hover {
+  text-decoration: underline;
+  opacity: 0.8;
+}
+
 .tag {
   margin: 0;
   list-style: none;

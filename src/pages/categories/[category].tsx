@@ -90,7 +90,7 @@ export default function CategoryPage({ blog, category }: { blog: IBlog[], catego
                         <article key={id}>
                             <time className="text-sm text-gray-500 block">{format(new Date(createdAt), 'yyyy/MM/dd')}</time>
                             <div className="text-lg font-medium">
-                                <Link href={`/posts/${id}`} className="font-semibold underline mb-1">
+                                <Link href={`/posts/${id}`} className="post-title">
                                     {title}
                                 </Link>
                             </div>
