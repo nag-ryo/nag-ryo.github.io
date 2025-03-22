@@ -15,10 +15,12 @@ export default function Header() {
                     <Button variant="text" size="small">
                         <Search className="h-4 w-4" />
                     </Button>
-                    <Button variant="text">Tags</Button>
+                    <Link href="/tags">
+                        <Button variant="text">Tags</Button>
+                    </Link>
                     <Link href="/profile">
                         <Avatar>
-                            <Image src="/file.svg" alt="Avatar" width={16} height={16} className="h-full w-full object-cover" />
+                            <Image src="/file.svg" alt="Avatar" width={16} height={16} className={styles.avatar} />
                         </Avatar>
                     </Link>
                 </div>

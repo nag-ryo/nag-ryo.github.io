@@ -36,10 +36,10 @@ export default {
     plugins: [],
     safelist: [
         {
-          pattern: /bg-(blue|red|green|yellow|emerald|gray|purple)-100/, // 背景色
+          pattern: /bg-(blue|red|green|yellow|emerald|gray|purple|orange)-100/, // 背景色
         },
         {
-          pattern: /text-(blue|red|green|yellow|emerald|gray|purple)-700/, // テキスト色
+          pattern: /text-(blue|red|green|yellow|emerald|gray|purple|orange)-700/, // テキスト色
         },
     ],
 } satisfies Config;

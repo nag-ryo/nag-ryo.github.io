@@ -7,6 +7,7 @@ import { getBlogData } from '@/lib/blog-service';
 import { IBlog } from '@/interfaces/i-blog';
 import { CATEGORY } from '@/interfaces/i-category';
 import Head from 'next/head';
+import styles from './index.module.css';
 
 /**
  * データをAPIから取得、テンプレートに受け渡す
@@ -66,7 +67,7 @@ export default function HomePage({ blog }: { blog: IBlog[] }) {
                         <article key={id}>
                             <time className="text-sm text-gray-500 block">{format(new Date(createdAt), 'yyyy/MM/dd')}</time>
                             <div className="text-lg font-medium">
-                                <Link href={`/posts/${id}`} className="font-semibold underline mb-1">
+                                <Link href={`/posts/${id}`} className={styles.title}>
                                     {title}
                                 </Link>
                             </div>
@@ -78,23 +79,19 @@ export default function HomePage({ blog }: { blog: IBlog[] }) {
                                     // 最初のタグはカテゴリーとして表示
                                     if (index === 0) {
                                         return (
-                                            <Link href={`/categories/${tag.urlName}`} key={index}>
-                                                <span
-                                                    className={`bg-${tag.color}-100 text-${tag.color}-700 px-2 py-0.5 rounded text-sm`}
-                                                >
+                                            <li className='tag' key={index}>
+                                                <Link href={`/categories/${tag.urlName}`} className={`bg-${tag.color}-100 text-${tag.color}-700 px-2 py-0.5 rounded text-sm`}>
                                                     {tag.name}
-                                                </span>
-                                            </Link>
+                                                </Link>
+                                            </li>
                                         );
                                     } else {
                                         return (
-                                            <Link href={`/tags/${tag.urlName}`} key={index}>
-                                                <span
-                                                    className={`bg-${tag.color}-100 text-${tag.color}-700 px-2 py-0.5 rounded text-sm`}
-                                                >
+                                            <li className='tag' key={index}>
+                                                <Link href={`/tags/${tag.urlName}`} className={`bg-${tag.color}-100 text-${tag.color}-700 px-2 py-0.5 rounded text-sm`}>
                                                     {tag.name}
-                                                </span>
-                                            </Link>
+                                                </Link>
+                                            </li>
                                         );
                                     }
                                 })}

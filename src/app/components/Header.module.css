@@ -4,6 +4,18 @@
     @apply text-2xl font-semibold flex items-center justify-center text-center flex-1;
 }
 
+.title:hover {
+    opacity: 0.8;
+}
+
+.avatar {
+    @apply h-full w-full object-cover
+}
+
+.avatar:hover {
+    @apply opacity-75;
+}
+
 /* デフォルトスタイル（空のdivに横幅を持たせる） */
 .empty-div {
     flex-grow: 1; /* 1を選択して、余白を拡張させる */

@@ -2,11 +2,12 @@ import { client } from '@/lib/microcms';
 import { format } from 'date-fns';
 import { IBlog } from '@/interfaces/i-blog';
 import { getBlogData } from '@/lib/blog-service';
-import { Box, Link } from '@mui/material';
+import Link from 'next/link';
 import Head from 'next/head';
 import { CATEGORY } from '@/interfaces/i-category';
+import { Box } from '@mui/material';
 
-export default function BlogId({ blog, isPreview }: { blog: IBlog; isPreview: boolean }) {
+export default function BlogId({ blog }: { blog: IBlog; isPreview: boolean }) {
 
     return (
         <article className='pt-16 pb-16'>
@@ -30,37 +31,25 @@ export default function BlogId({ blog, isPreview }: { blog: IBlog; isPreview: bo
                             // 最初のタグはカテゴリーとして表示
                             if (index === 0) {
                                 return (
-                                    <Link href={`/categories/${tag.urlName}`} key={index}>
-                                        <span
-                                            className={`bg-${tag.color}-100 text-${tag.color}-700 px-2 py-0.5 rounded text-sm`}
-                                        >
+                                    <li className='tag' key={index}>
+                                        <Link href={`/categories/${tag.urlName}`} className={`bg-${tag.color}-100 text-${tag.color}-700 px-2 py-0.5 rounded text-sm`}>
                                             {tag.name}
-                                        </span>
-                                    </Link>
+                                        </Link>
+                                    </li>
                                 );
                             } else {
                                 return (
-                                    <Link href={`/tags/${tag.urlName}`} key={index}>
-                                        <span
-                                            className={`bg-${tag.color}-100 text-${tag.color}-700 px-2 py-0.5 rounded text-sm`}
-                                        >
+                                    <li className='tag' key={index}>
+                                        <Link href={`/tags/${tag.urlName}`} className={`bg-${tag.color}-100 text-${tag.color}-700 px-2 py-0.5 rounded text-sm`}>
                                             {tag.name}
-                                        </span>
-                                    </Link>
+                                        </Link>
+                                    </li>
                                 );
                             }
                         })}
                     </div>
                 </section>
                 <div>
-                    {isPreview && (
-                        <>
-                            <p>Preview Mode</p>
-                            <Link href={'/api/clear-preview'}>
-                                <p>プレビュー解除</p>
-                            </Link>
-                        </>
-                    )}
                     <Box sx={{ width: '100%', marginTop: '32px' }}>
                         <div dangerouslySetInnerHTML={{ __html: `${blog.body}` }} />
                     </Box>

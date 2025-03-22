@@ -18,11 +18,6 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-li {
-  margin: 0 0 0.5rem 0.5rem;
-  list-style-type: disc;
-}
-
 h1 {
   @apply text-2xl leading-tight font-semibold;
 }
@@ -59,6 +54,15 @@ ul {
   @apply list-disc pl-8 py-2;
 }
 
+li {
+  margin: 0 0 0.5rem 0.5rem;
+  list-style-type: disc;
+}
+
+a :hover {
+  text-decoration: underline;
+}
+
 pre {
   @apply p-4 rounded-lg overflow-x-auto;
   background-color: var(--code-bg); /* ダークグレーの背景色を設定 */
@@ -81,4 +85,14 @@ pre {
         margin: 16px auto;
         max-width: 1024px;
     }
+}
+
+.tag {
+  margin: 0;
+  list-style: none;
+}
+
+.tag :hover {
+  text-decoration: underline;
+  opacity: 0.8;
 }

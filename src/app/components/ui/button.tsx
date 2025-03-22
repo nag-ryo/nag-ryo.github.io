@@ -33,9 +33,10 @@ const CustomButton: React.FC<ButtonProps> = ({
             sx={{
                 textTransform: 'none',
                 minWidth: '32px',
-                padding: '8px 12px',
+                padding: '2px 6px',
                 '&:hover': {
-                    backgroundColor: blue[700],
+                    opacity: 0.8,
+                    textDecoration: 'underline',
                 }
             }}
         >
