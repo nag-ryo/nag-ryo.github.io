@@ -7,6 +7,7 @@ import { getBlogData, getTagData } from '@/lib/blog-service';
 import { IBlog } from '@/interfaces/i-blog';
 import { CATEGORY } from '@/interfaces/i-category';
 import Head from 'next/head';
+import { ITag } from '@/interfaces/i-tag';
 
 export const getStaticPaths = async () => {
     /** APIからタグデータを取得 */
@@ -44,27 +45,29 @@ export const getStaticProps = async (context: { params: { tag: string } }) => {
         }
     });
 
+    const tagData = (await getTagData()).find(t => t.urlName.toLowerCase() === tag.toLowerCase());
+
     return {
         props: {
             blog: posts,
-            tag,
+            tag: tagData,
         },
     };
 };
 
-export default function TagPage({ blog, tag }: { blog: IBlog[], tag: string }) {
+export default function TagPage({ blog, tag }: { blog: IBlog[], tag: ITag }) {
     return (
         <>
             <Head>
-                <title>{`Nag&apos;s Blog - Tag: ${tag}`}</title>
-                <meta name="description" content={`「Nag's Blog」の${tag}タグの記事一覧です。`} />
-                <meta name="keywords" content={`ブログ, ${tag}, 記事`} />
+                <title>{`Nag&apos;s Blog - Tag: ${tag.name}`}</title>
+                <meta name="description" content={`「Nag's Blog」の${tag.name}タグの記事一覧です。`} />
+                <meta name="keywords" content={`ブログ, ${tag.name}, 記事`} />
             </Head>
             <main className='pt-8 pb-8'>
 
                 {/* ナビゲーション */}
                 <nav className="flex gap-2 mb-8 items-center justify-between">
-                    <h1>{`# ${tag}`}</h1>
+                    <h1>{`# ${tag.name}`}</h1>
                     <Button variant="outlined" size="small">
                         <FontAwesomeIcon icon={faRss} className="h-4 w-4" />
                     </Button>
@@ -113,7 +116,6 @@ export default function TagPage({ blog, tag }: { blog: IBlog[], tag: string }) {
                         </article>
                     ))}
                 </div>
-
             </main>
         </>
     );
