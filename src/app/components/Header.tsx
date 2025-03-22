@@ -9,7 +9,7 @@ export default function Header() {
     return (
         <header className="text-center pt-4 pb-4 mx-8 lg:mx-auto max-w-screen-lg">
             <div className="flex justify-between items-center">
-                <div className="flex-1"></div>
+                <div className={styles['empty-div']}></div>
                 <Link className={styles.title} href="/">Nag&apos;s Blog</Link>
                 <div className="flex justify-end gap-4 flex-1">
                     <Button variant="text" size="small">

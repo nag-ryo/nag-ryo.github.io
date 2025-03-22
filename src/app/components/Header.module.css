@@ -3,3 +3,17 @@
 .title {
     @apply text-2xl font-semibold flex items-center justify-center text-center flex-1;
 }
+
+/* デフォルトスタイル（空のdivに横幅を持たせる） */
+.empty-div {
+    flex-grow: 1; /* 1を選択して、余白を拡張させる */
+    flex-basis: 0; /* 初期の横幅を0に設定 */
+}
+
+/* 横幅768px以下の場合のスタイル */
+@media (max-width: 768px) {
+    .empty-div {
+        flex-grow: 0; /* レスポンシブのために横幅を持たせない */
+        flex-basis: auto; /* 必要に応じて自動調整 */
+    }
+}

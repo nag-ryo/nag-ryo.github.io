@@ -30,7 +30,14 @@ const CustomButton: React.FC<ButtonProps> = ({
             color={color}
             size={size}
             disabled={disabled}
-            sx={{ textTransform: 'none' }}
+            sx={{
+                textTransform: 'none',
+                minWidth: '32px',
+                padding: '8px 12px',
+                '&:hover': {
+                    backgroundColor: blue[700],
+                }
+            }}
         >
             {children}
         </Button>
