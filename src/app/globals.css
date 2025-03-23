@@ -47,7 +47,20 @@ h4 {
 }
 
 p {
-  @apply text-base leading-relaxed;
+  @apply text-base leading-relaxed break-words;
+}
+
+p + p {
+  @apply mt-6;
+}
+
+blockquote {
+  @apply border-l-4 border-solid pl-4 py-2 my-4;
+}
+
+/* blockquote内のpタグ同士の間隔をリセット */
+blockquote p + p {
+  margin-top: 0; /* mt-6を無効化 */
 }
 
 ul {
