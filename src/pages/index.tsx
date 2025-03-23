@@ -29,19 +29,23 @@ export const getStaticProps = async () => {
         }
     });
 
+    /** ヘッダーのmetaタグで使用する */
+    const recentTitles = posts.slice(0, 30).map(post => post.title).join('・');
+
     return {
         props: {
             blog: posts,
+            recentTitles,
         },
     };
 };
 
-export default function HomePage({ blog }: { blog: IBlog[] }) {
+export default function HomePage({ blog, recentTitles }: { blog: IBlog[], recentTitles: string }) {
     return (
         <>
             <Head>
                 <title>Nag&apos;s Blog</title>
-                <meta name="description" content="「Nag's Blog」の各記事の画面です。" />
+                <meta name="description" content={`Nag's Blog・${recentTitles}`} />
                 <meta name="keywords" content="ブログ, 詳細, 記事" />
             </Head>
             <main className='pt-8 pb-8'>
