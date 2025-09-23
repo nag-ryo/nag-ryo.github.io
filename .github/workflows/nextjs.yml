@@ -31,6 +31,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
       - name: Detect package manager
         id: detect-package-manager
         run: |
@@ -62,16 +64,13 @@ jobs:
           # You may remove this line if you want to manage the configuration yourself.
           static_site_generator: next
           generator_config_file: next.config.ts
-      - name: Restore cache
+      - name: Restore Next cache
         uses: actions/cache@v4
         with:
-          path: |
-            .next/cache
-          # Generate a new cache whenever packages or source files change.
-          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
+          path: .next/cache
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-${{ hashFiles('next.config.*', 'package.json', 'app/**/*', 'pages/**/*', 'components/**/*', 'lib/**/*', 'content/**/*', 'public/**/*', '**/*.[cm]?(d)?(t|j)s?(x)', '**/*.md', '**/*.mdx') }}
           # If source files changed but packages didn't, rebuild from a prior cache.
-          restore-keys: |
-            ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
+          restore-keys: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Build with Next.js
