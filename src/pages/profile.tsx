@@ -15,7 +15,7 @@ export default function Profile() {
                 {/* 上部メッセージ */}
                 <h1 className="text-3xl font-bold mb-4">プロフィール</h1>
                 <p className="text-lg text-gray-700 mb-6">
-                    ブロックチェーンの会社でエンジニアをしています。
+                    学んだことをアウトプットするよ。
                 </p>
 
                 {/* 著者情報 */}
