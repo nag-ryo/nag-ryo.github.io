@@ -24,12 +24,12 @@ export default function Header() {
                     </Link>
                     <Link href="/profile">
                         <Avatar>
-                            <Image src="/file.svg" alt="Avatar" width={16} height={16} className={styles.avatar} />
+                            <Image src="/images/gopher_icon.jpeg" alt="Avatar" width={16} height={16} className={styles.avatar} />
                         </Avatar>
                     </Link>
                 </div>
             </div>
-            <p className="text-sm text-muted-foreground">KEEP ON GROWING</p>
+            <p className="text-sm text-muted-foreground">ブロックチェーンやそれ以外に関してツラツラと...</p>
         </header>
     );
 }
