@@ -25,7 +25,7 @@ class MyDocument extends Document {
                     />
                     <meta
                         name="description"
-                        content="Nag Note - 技術ブログ"
+                        content="炉辺にて、炎と記憶のあいだを旅する - 技術ブログ"
                     />
                 </Head>
                 <body>

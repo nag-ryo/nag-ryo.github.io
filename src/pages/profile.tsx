@@ -7,23 +7,29 @@ export default function Profile() {
     return (
         <>
             <Head>
-                <title>Profile | Nag&apos;s Blog</title>
-                <meta name="description" content="「Nag's Blog」の著者のプロフィールページです。" />
+                <title>Profile | 炉辺にて、炎と記憶のあいだを旅する</title>
+                <meta name="description" content="「炉辺にて、炎と記憶のあいだを旅する」の著者のプロフィールページです。" />
                 <meta name="keywords" content="ブログ, プロフィール, プロファイル, 著者情報, 技術" />
             </Head>
             <div className="pt-8 pb-8 max-w-screen-md mx-auto">
                 {/* 上部メッセージ */}
                 <h1 className="text-3xl font-bold mb-4">プロフィール</h1>
                 <p className="text-lg text-gray-700 mb-6">
-                    学んだことをアウトプットするよ。
+                    書き溜めの掃き溜め
                 </p>
 
                 {/* 著者情報 */}
                 <section className="mb-8">
                     <h2 className="text-2xl font-semibold mb-2">著者について</h2>
                     <p className="text-gray-600">
-                        ブロックチェーンの会社でエンジニアをしております。
-                        セキュリティに興味があります。
+                        ブロックチェーンの会社でエンジニアをしている。
+                        趣味はゲーム、読書、ギター、編み物など多岐にわたります。
+                        <br />
+                        プログラミングやブロックチェーンに関する知識を中心に、日々の学びや気づきを共有しています。
+                        <br />
+                        ブロックチェーンは未来のインフラになるのか、あるいはただのバブルなのか...？
+                        <br />
+                        そんなことを考えながら。
                     </p>
                 </section>
 
@@ -65,7 +71,7 @@ export default function Profile() {
 
                 {/* フッター */}
                 <footer className="text-center text-gray-500 text-sm mt-8">
-                    © 2025 Nag&apos;s Blog. All rights reserved.
+                    © 2025 炉辺にて、炎と記憶のあいだを旅する All rights reserved.
                 </footer>
             </div>
         </>

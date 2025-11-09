@@ -44,8 +44,8 @@ export default function HomePage({ blog, recentTitles }: { blog: IBlog[], recent
     return (
         <>
             <Head>
-                <title>Nag&apos;s Blog</title>
-                <meta name="description" content={`Nag's Blog・${recentTitles}`} />
+                <title>炉辺にて、炎と記憶のあいだを旅する</title>
+                <meta name="description" content={`炉辺にて、炎と記憶のあいだを旅する・${recentTitles}`} />
                 <meta name="keywords" content="ブログ, 詳細, 記事" />
             </Head>
             <main className='pt-8 pb-8'>

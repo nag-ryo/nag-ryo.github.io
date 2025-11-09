@@ -59,8 +59,8 @@ export default function TagPage({ blog, tag }: { blog: IBlog[], tag: ITag }) {
     return (
         <>
             <Head>
-                <title>{`Nag&apos;s Blog - Tag: ${tag.name}`}</title>
-                <meta name="description" content={`「Nag's Blog」の${tag.name}タグの記事一覧です。`} />
+                <title>{`炉辺にて、炎と記憶のあいだを旅する - Tag: ${tag.name}`}</title>
+                <meta name="description" content={`「炉辺にて、炎と記憶のあいだを旅する」の${tag.name}タグの記事一覧です。`} />
                 <meta name="keywords" content={`ブログ, ${tag.name}, 記事`} />
             </Head>
             <main className='pt-8 pb-8'>

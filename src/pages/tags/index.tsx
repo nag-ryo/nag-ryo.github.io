@@ -18,8 +18,8 @@ export default function TagsPage({ tags }: { tags: ITag[] }) {
     return (
         <>
             <Head>
-                <title>Tags - Nag&apos;s Blog</title>
-                <meta name="description" content="「Nag's Blog」のタグ一覧ページです。" />
+                <title>Tags - 炉辺にて、炎と記憶のあいだを旅する</title>
+                <meta name="description" content="「炉辺にて、炎と記憶のあいだを旅する」のタグ一覧ページです。" />
             </Head>
             <main className="pt-8 pb-8">
                 <h1 className="text-2xl font-bold mb-4">Tags</h1>

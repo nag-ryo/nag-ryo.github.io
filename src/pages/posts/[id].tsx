@@ -12,8 +12,8 @@ export default function BlogId({ blog }: { blog: IBlog; isPreview: boolean }) {
     return (
         <article className='pt-16 pb-16'>
             <Head>
-                <title>{blog.title} | Nag&apos;s Blog</title>
-                <meta name="description" content="「Nag's Blog」の各記事の画面です。" />
+                <title>{blog.title} | 炉辺にて、炎と記憶のあいだを旅する</title>
+                <meta name="description" content="「炉辺にて、炎と記憶のあいだを旅する」の各記事の画面です。" />
                 <meta name="keywords" content="ブログ, 詳細, 記事" />
             </Head>
             <div>

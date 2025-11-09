@@ -12,7 +12,7 @@ export default function Header() {
                 <div className={styles['empty-div']}></div>
                 <span>
                     <Link className={styles.title} href="/">
-                        Nag&apos;s Blog
+                        炉辺にて、炎と記憶のあいだを旅する
                     </Link>
                 </span>
                 <div className="flex justify-end gap-4 flex-1">
@@ -29,7 +29,7 @@ export default function Header() {
                     </Link>
                 </div>
             </div>
-            <p className="text-sm text-muted-foreground">ブロックチェーンやそれ以外に関してツラツラと...</p>
+            <p className="text-sm text-muted-foreground">プログラミング、ブロックチェーン、ゲーム、読書、ギター、編み物...</p>
         </header>
     );
 }

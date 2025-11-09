@@ -57,8 +57,8 @@ export default function CategoryPage({ blog, category }: { blog: IBlog[], catego
     return (
         <>
             <Head>
-                <title>{`Nag's Blog - ${category}`}</title>
-                <meta name="description" content={`「Nag's Blog」の${category}カテゴリの記事一覧です。`} />
+                <title>{`炉辺にて、炎と記憶のあいだを旅する - ${category}`}</title>
+                <meta name="description" content={`「炉辺にて、炎と記憶のあいだを旅する」の${category}カテゴリの記事一覧です。`} />
                 <meta name="keywords" content={`ブログ, ${category}, 記事`} />
             </Head>
             <main className='pt-8 pb-8'>
